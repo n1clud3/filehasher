@@ -1,8 +1,9 @@
 [package]
 name = "filehasher"
-description = "CLI app, which outputs hash of provided file."
 version = "0.1.0"
 edition = "2021"
+description = "CLI app, which outputs hash of provided file."
+readme = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
