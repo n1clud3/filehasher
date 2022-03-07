@@ -2,8 +2,10 @@
 name = "filehasher"
 version = "0.1.0"
 edition = "2021"
-description = "CLI app, which outputs hash of provided file."
+description = "CLI utility, which outputs hash of provided file."
 readme = "README.md"
+license = "MIT"
+repository = "https://github.com/n1clud3/filehasher"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

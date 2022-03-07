@@ -6,10 +6,14 @@ mod util;
 
 const HASH_TYPES: [&'static str; 2] = ["md5", "sha256"];
 
+// CLI utility, which outputs the hash of the given file
 #[derive(Parser)]
+#[clap(author, version, about, long_about = None)]
 struct Cli {
-    hash_type: String, // Type of hash user wishes to use
-    #[clap(parse(from_os_str))]
+    // Type of hash user wishes to use
+    #[clap(help = "Type of hash algorithm to use")]
+    hash_type: String,
+    #[clap(parse(from_os_str), help = "Path to the file")]
     path: std::path::PathBuf,
 }
 
