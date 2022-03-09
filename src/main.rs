@@ -24,27 +24,38 @@ fn main() {
         Ok(ct) => ct,
         Err(error) => match error.kind() {
             std::io::ErrorKind::NotFound => {
-                eprintln!("{}{} cannot find the file specified", "error".red().bold(), ":".bold());
+                eprintln!(
+                    "{}{} cannot find the file specified",
+                    "error".red().bold(),
+                    ":".bold()
+                );
                 std::process::exit(2)
-            },
-            other_error => panic!("{:?}", other_error)
-        }
+            }
+            other_error => panic!("{:?}", other_error),
+        },
     };
 
-    let result = match args.algorithm.as_str() { 
+    let result = match args.algorithm.as_str() {
         "md5" => util::compute_md5(file),
         "sha128" => util::compute_sha128(file),
         "sha224" => util::compute_sha224(file),
         "sha256" => util::compute_sha256(file),
         "sha384" => util::compute_sha384(file),
         "sha512" => util::compute_sha512(file),
-        
+
         // It's impossible to get to this arm. But if you do, please make an issue
-        _ => panic!("unknown algorithm {:?}", args.algorithm)
+        _ => panic!("unknown algorithm {:?}", args.algorithm),
     };
 
-    let output = if args.unformatted { format!("{}", result) } else {
-        format!("The {} hash of {:?} is {}", args.algorithm.to_ascii_uppercase(), args.path, result)
+    let output = if args.unformatted {
+        format!("{}", result)
+    } else {
+        format!(
+            "The {} hash of {:?} is {}",
+            args.algorithm.to_ascii_uppercase(),
+            args.path,
+            result
+        )
     };
     println!("{}", output)
 }
