@@ -43,9 +43,7 @@ fn main() {
         _ => panic!("unknown algorithm {:?}", args.algorithm)
     };
 
-    let output = if args.unformatted {
-        format!("{}", result)
-    } else {
+    let output = if args.unformatted { format!("{}", result) } else {
         format!("The {} hash of {:?} is {}", args.algorithm.to_ascii_uppercase(), args.path, result)
     };
     println!("{}", output)
