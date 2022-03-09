@@ -1,6 +1,6 @@
 [package]
 name = "filehasher"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 description = "CLI utility, which outputs hash of provided file."
 readme = "README.md"
@@ -12,5 +12,6 @@ categories = ["command-line-utilities"]
 
 [dependencies]
 clap = { version = "3.0", features = ["derive"] }
-md5 = "0.7.0"
-sha256 = "1.0.3"
+md-5 = "0.10.1"
+sha1 = "0.10.1"
+sha2 = "0.10.2"
